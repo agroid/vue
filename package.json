@@ -1,11 +1,12 @@
 {
   "name": "embrapa-id-vue",
-  "version": "0.1.0",
+  "version": "1.19.03-5",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve",
+    "serve": "vue-cli-service serve --open",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "build-bundle": "vue-cli-service build --target lib --name embrapa-id-vue ./src/components/index.js"
   },
   "dependencies": {
     "vue": "^2.6.6"
@@ -19,5 +20,13 @@
     "eslint": "^5.8.0",
     "eslint-plugin-vue": "^5.0.0",
     "vue-template-compiler": "^2.5.21"
-  }
+  },
+  "main": "./dist/embrapa-id-vue.common.js",
+  "files": [
+    "dist/*",
+    "src/*",
+    "public/*",
+    "*.json",
+    "*.js"
+  ]
 }
