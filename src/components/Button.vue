@@ -8,7 +8,7 @@
         <div class="embrapa-id-modal-mask">
           <div class="embrapa-id-modal-wrapper">
             <div class="embrapa-id-modal-container">
-              <iframe id="login" ref="login" src="http://localhost:8081" frameborder="0" v-on:load="loaded()"></iframe>
+              <iframe id="login" ref="login" src="http://localhost:8081/#/login" frameborder="0" v-on:load="loaded()"></iframe>
             </div>
           </div>
         </div>
@@ -21,7 +21,12 @@
 export default {
   data () {
     return {
-      show: false
+      show: false,
+      alert: {
+        show: false,
+        type: 'warning',
+        message: ''
+      }
     }
   },
   methods: {
@@ -32,6 +37,7 @@ export default {
       document.getElementById('login').contentWindow.postMessage('Meu Parâmetro 1', 'http://localhost:8081')
 
       window.addEventListener('message', event => {
+        // In production: https://id.cnpgc.embrapa.br
         if (event.origin !== 'http://localhost:8081') {
           return
         }
